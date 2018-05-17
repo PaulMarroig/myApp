@@ -13,7 +13,6 @@
 </ion-header>
 
 <ion-content padding>
-  <form>
       <ion-list>
           <ion-item *ngFor="let com of QRcode.commentary">
             <p>{{ com.text }}</p>
@@ -24,13 +23,12 @@
         <h2>Ajouter un commentaire</h2>
         <ion-list>
           <ion-item>
-            <ion-textarea placeholder="Votre commentaire"></ion-textarea>
+            <ion-textarea [(ngModel)]="newCom" placeholder="Votre commentaire"></ion-textarea>
           </ion-item>
         </ion-list>
       </ion-item>
     </ion-list>
-    <button ion-button type="submit" block>Poster</button>
-  </form>
+    <button ion-button type="submit" block (click)="addCommentary()">Poster</button>
       
 
 </ion-content>

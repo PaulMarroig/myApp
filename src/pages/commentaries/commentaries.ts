@@ -17,19 +17,27 @@ import 'firebase/firestore';
   templateUrl: 'commentaries.html',
 })
 export class CommentariesPage {
-  qrcodes: any;
   QRcode: any;
+  newCom: string;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.QRcode = {};
     this.QRcode = this.navParams.get("myqrcode");
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CommentariesPage');
-    
+  
+  addCommentary(){
+    const db = firebase.firestore();
+    /*db.collection('qrcode').doc(this.QRcode.id).collection('commentary').add({
+      text: this.newCom
+    })*/
+    var comments = this.QRcode.commentary;
+
+    comments.push({text: this.newCom});
+    db.collection('qrcode').doc(this.QRcode.id).update({commentary: comments});
+
   }
 
-  list() {
+  /*list() {
     const db = firebase.firestore();
     this.qrcodes = [];
     return db.collection("qrcode").get().then((collection) => {
@@ -52,7 +60,7 @@ export class CommentariesPage {
     }).catch( (error) => {
       console.error(error);
     });
-  }
+  }*/
 
   get(id) {
     //const db = firebase.firestore();
