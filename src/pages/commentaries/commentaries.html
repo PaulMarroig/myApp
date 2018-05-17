@@ -14,18 +14,20 @@
 
 <ion-content padding>
   <form>
-    <ion-list>
+    <ion-list *ngFor="let qrcode of qrcodes">
       <ion-item>
         <h2>Tags Infos & Commentaries</h2>
         <ion-list>
           <ion-item>
-            <p>Nom du tag</p>
+            <p>{{ qrcode.title }}</p>
+          </ion-item>
+          <ion-item *ngFor="let com of qrcode.commentary">
+            <p>Commentaire n°1</p>
+            <p>{{ com.text }}</p>
           </ion-item>
           <ion-item>
-            <p>Commentaire 1</p>
-          </ion-item>
-          <ion-item>
-            <p>commentaire 2</p>
+            <p>Commentaire n°2</p>
+            <p>Oui il est top</p>
           </ion-item>
         </ion-list>
       </ion-item>
