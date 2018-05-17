@@ -5,8 +5,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TabsPage } from '../pages/tabs/tabs';
 
-import firebase from 'firebase';
+import * as firebase from 'firebase';
 import { Configuration } from './config';
+firebase.initializeApp(Configuration.firebase);
 
 @Component({
   templateUrl: 'app.html'
@@ -19,7 +20,7 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       
-      firebase.initializeApp(Configuration.firebase);
+      
       statusBar.styleDefault();
       splashScreen.hide();
     });
