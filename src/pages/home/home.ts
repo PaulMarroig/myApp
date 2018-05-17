@@ -40,8 +40,10 @@ export class HomePage {
      item.valeur++;
    }
 
-   DisplayComs(){
-     this.navCtrl.push(CommentariesPage)
+   DisplayComs(qrcode){
+     this.navCtrl.push(CommentariesPage,{
+        myqrcode : qrcode
+     })
    }
 
 }

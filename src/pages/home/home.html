@@ -36,9 +36,9 @@
           </button>
         </ion-col>
         <ion-col>
-          <button ion-button icon-left clear small (click)="DisplayComs()">
+          <button ion-button icon-left clear small (click)="DisplayComs(qrcode)">
             <ion-icon name="text"></ion-icon>
-            <div></div>
+            <div>{{qrcode.commentary.length}}</div>
           </button>
         </ion-col>
       </ion-row>

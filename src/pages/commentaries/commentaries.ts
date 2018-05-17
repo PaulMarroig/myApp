@@ -18,9 +18,10 @@ import 'firebase/firestore';
 })
 export class CommentariesPage {
   qrcodes: any;
-
+  QRcode: any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.list();
+    this.QRcode = {};
+    this.QRcode = this.navParams.get("myqrcode");
   }
 
   ionViewDidLoad() {
